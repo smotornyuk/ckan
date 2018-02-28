@@ -196,7 +196,7 @@ class DatastorePlugin(p.SingletonPlugin):
                 'resource_id': res.id,
             })
             res.extras['datastore_active'] = False
-            res.update(
+            res_query.filter_by(id=res.id).update(
                 {'extras': res.extras}, synchronize_session=False)
 
     # IDatastore
